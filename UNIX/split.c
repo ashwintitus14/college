@@ -4,9 +4,9 @@
 #define line_max 200
 #define filename_max 100
 
-int split(char filename[], int size){
+int split(char filename[], int size, char prefix){
 	char line[line_max], generated_filename[10];
-	generated_filename[0] = 'x';       //prefix
+	generated_filename[0] = prefix;       //prefix
 	generated_filename[1] = 'a';
 	generated_filename[2] = '`';
 	int i = 0;
@@ -43,8 +43,9 @@ int split(char filename[], int size){
 }
 int main(int argc, char* argv[]){
 	
-	char filename[filename_max];
-	int size = 5;		/*size: number of lines in each new file*/
+	char filename[filename_max],prefix;
+	prefix = 'x';   //default prefix
+	int size = 1000;		/*size: number of lines in each new file*/
 	
 	switch(argc){
 		case 1:{
@@ -53,20 +54,28 @@ int main(int argc, char* argv[]){
 		}
 		case 2:{
 				strcpy(filename, argv[1]);
-				split(filename, size);
+				split(filename, size, prefix);
 				break;
 		}
 		case 3:{
-			       printf("invalid number of lines: %s\n",argv[2]);
-			       break;
+				printf("invalid number of lines: %s\n",argv[2]);
+				break;
 		}
 		case 4:{
-			       if(strcmp(argv[1],"-l") == 0){
-				       size = atoi(argv[2]);
-				      strcpy( filename,argv[3]);
+				if(strcmp(argv[1],"-l") == 0){
+					size = atoi(argv[2]);
+					strcpy(filename,argv[3]);
 				}
-			       split(filename, size);
-			       break;
+				split(filename, size, prefix);
+				break;
+		}
+		case 5:{
+				if(strcmp(argv[1],"-l") == 0){
+					size = atoi(argv[2]);
+					strcpy(filename, argv[3]);
+				}
+				split(filename, size, *argv[4]);
+				break;
 		}
 		default:{
 				printf("Too many arguments!\n");
