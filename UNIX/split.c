@@ -6,15 +6,27 @@
 
 int split(char filename[], int size){
 	char line[line_max], generated_filename[10];
-	generated_filename[0] = 'x';
-	generated_filename[1] = '`';
+	generated_filename[0] = 'x';       //prefix
+	generated_filename[1] = 'a';
+	generated_filename[2] = '`';
 	int i = 0;
 		
 	FILE *fp, *fw;
 	fp = fopen(filename, "r");
 	while(fgets(line,200,fp) != NULL){
 		if(i == 0){	
-			generated_filename[1]++;
+			if(generated_filename[2] < 'z'){
+				generated_filename[2]++;
+			}
+			else{
+				generated_filename[1]++;
+				generated_filename[2] = 'a';
+			}
+			if(generated_filename[1] > 'z'){
+				printf("File limit: 676 reached\n");
+				exit(0);
+			}
+			
 			fw = fopen(generated_filename,"w+");
 		}
 		if(i<size){
@@ -24,9 +36,7 @@ int split(char filename[], int size){
 				fclose(fw);
 				i = 0;
 			}
-		}
-		printf("%d\n",i);
-			
+		}	
 	}
 	fclose(fp);
 	return 0;
