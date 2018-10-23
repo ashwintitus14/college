@@ -39,3 +39,12 @@ CREATE TABLE class_(
    email VARCHAR(30),
    class_id INT REFERENCES class_(class_id)
   );
+
+INSERT INTO student (st_fname, st_lname, addr, phone, email, class_id)
+VALUES ('Abhijith', 'R', 'Address', '+910000000000', 'a@a.com', 1),
+       ('Harry', 'Potter', 'Address', '+910000000000', 'a@a.com',1),
+       ('Hermione', 'Granger', 'Address', '+910000000000', 'a@a.com', 1),
+       ('Lisbeth','Salander','Address','+910000000000','wasp@wasp.com',1),
+       ('Camilla', 'Salander', 'Address', '+910000000000', 'thanos@thanos.com', 1)
+ );
+ 
