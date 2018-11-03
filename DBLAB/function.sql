@@ -81,3 +81,23 @@ LANGUAGE plpgsql;
 
 
 -- _ -> 1 character % -> wildcard 
+
+SELECT DISTINCT s1.st_fname, s1.st_lname FROM student AS s1, student as s2
+WHERE s1.st_fname LIKE s2.st_fname AND
+s1.st_id != s2.st_id
+ORDER BY(s1.st_fname);
+
+CREATE OR REPLACE FUNCTION testCur()
+RETURNS VOID AS
+$$
+DECLARE
+	rec RECORD;
+	cur CURSOR FOR SELECT st_fname, st_lname FROM studen LIMIT 5;
+	BEGIN
+		FOR rec IN cur
+		LOOP
+			RAISE NOTICE 'fname: %, lname: %', rec.st_fname, rec.st_lname;
+		END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
