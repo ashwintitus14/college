@@ -49,4 +49,35 @@ END;
 $BODY$
 LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION lstCWSGT(n INT)
+RETURNS TABLE(
+c_name VARCHAR,
+divis VARCHAR,
+s_cnt INT
+)
+AS
+$$
+BEGIN
+	RETURN QUERY SELECT class_name, division, st_cnt FROM class_
+	WHERE st_cnt>n;
+END;
+$$
+LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION names(name VARCHAR)
+RETURNS TABLE(
+id INT,
+fname VARCHAR,
+lname VARCHAR,
+classid INT
+)
+AS
+$$
+BEGIN
+	RETURN QUERY select * from student where st_fname LIKE name;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+-- _ -> 1 character % -> wildcard 
