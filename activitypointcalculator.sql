@@ -220,7 +220,16 @@ END;
 $$
 LANGUAGE plpgsql;
 
-
+-- Function to export student data to csv
+CREATE OR REPLACE FUNCTION export_student_to_csv()
+RETURNS VOID
+AS $$
+BEGIN
+	Copy (Select * From _student) To '/tmp/student.csv' With CSV DELIMITER ','
+	RAISE NOTICE 'Exported to CSV file at /tmp/student.csv';
+END;
+$$
+LANGUAGE plpgsql;
 
 
 
