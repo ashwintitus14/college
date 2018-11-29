@@ -22,7 +22,7 @@ CREATE TABLE _category(
         C_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
         Activity_type VARCHAR NOT NULL,
         Level_ INT,
-		Points INT,
+	Points INT,
         Max_points INT NOT NULL
 );
         
