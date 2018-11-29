@@ -43,6 +43,22 @@ CREATE TABLE _student(
         Points INT DEFAULT 0
 );
 
+CREATE TABLE _student_backup(
+        Roll_No INT NOT NULL PRIMARY KEY UNIQUE,
+        Name_ VARCHAR NOT NULL,
+        Branch VARCHAR NOT NULL,
+        Year_of_Graduation INT NOT NULL,
+        Points INT DEFAULT 0
+);
+
+CREATE TABLE _student_del_backup(
+        Roll_No INT NOT NULL PRIMARY KEY UNIQUE,
+        Name_ VARCHAR NOT NULL,
+        Branch VARCHAR NOT NULL,
+        Year_of_Graduation INT NOT NULL,
+        Points INT DEFAULT 0
+);
+
 -- Populating category table
 
 INSERT INTO _category(Activity_type, Level_, Points, Max_points)
