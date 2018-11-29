@@ -1,6 +1,7 @@
 # Activity Point Calculator (Database Lab Project)
 
-### **DDL Commands**
+## **Setup**
+### DDL Commands
 
 ```sql
 CREATE TABLE _teacher(
@@ -47,3 +48,20 @@ CREATE TABLE _student(
         Points INT 
 );
 ```
+### Populating the _category table with sample data*
+
+```sql
+INSERT INTO _category(Activity_type, Level_0, Level_1, Level_2, Level_3, Level_4, Level_5,Max_points)
+VALUES
+    ('Sports', 0, 8, 15, 25, 40, 60, 60),
+    ('Games', 0, 8, 15, 25, 40, 60, 60),
+    ('Music', 0, 8, 12, 20, 40, 60, 60),
+    ('Performing arts', 0, 8, 12, 20, 40, 60, 60),
+    ('Literary arts', 0, 8, 12, 20, 40, 60, 60),
+    ('Tech fest, Tech Quiz', 0, 10, 20, 30, 40, 50, 50),
+    ('MOOC with final assessment certificate', 50, 0, 0, 0, 0, 0, 50)
+;
+```
+## **Functions**
+
+### 
