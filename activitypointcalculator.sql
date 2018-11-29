@@ -121,6 +121,26 @@ CREATE OR REPLACE FUNCTION update_points( roll_no int, activity varchar)
 
 
 
+--Function to add Admin's details
+
+CREATE OR REPLACE FUNCTION add_admin( admin_id int, name_ varchar, email varchar, password_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+        INSERT INTO _admin(Admin_id, Name_, Email, Password_) VALUES ( admin_id, name_, email, password_);
+        RAISE NOTICE 'Student details added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+
+
+
+
+
+
+
+
+
 
 
 
