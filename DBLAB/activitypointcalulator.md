@@ -77,7 +77,7 @@ END;
 $$
 LANGUAGE plpgsql;
 ```
-#### Function call
+> Function call
 
 ```sql
 SELECT FROM add_activity( 'Debate'::VARCHAR, 'Literary arts'::VARCHAR, '2018-02-12'::DATE, 3);
@@ -95,7 +95,7 @@ END;
 $$
 LANGUAGE plpgsql;
 ```
-#### Function call
+> Function call
 
 ```sql
 SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
