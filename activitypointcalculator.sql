@@ -151,6 +151,9 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+--to call add_teacher
+
+SELECT add_teacher(1001,'Jiphi T S'::varchar,'Proffessor'::varchar,'IT'::varchar,'jiphi@gmail.com'::varchar,'asdfdfg21'::varchar);
 
 
 
@@ -234,7 +237,7 @@ CREATE OR REPLACE FUNCTION export_student_to_csv()
 RETURNS VOID
 AS $$
 BEGIN
-	Copy (Select * From _student) To '/tmp/student.csv' With CSV DELIMITER ',';
+	Copy (Select * From _student) To '/tmp/student.csv' With CSV DELIMITER ','
 	RAISE NOTICE 'Exported to CSV file at /tmp/student.csv';
 END;
 $$
