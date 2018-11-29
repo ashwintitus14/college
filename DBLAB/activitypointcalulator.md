@@ -100,3 +100,23 @@ LANGUAGE plpgsql;
 ```sql
 SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 ```
+
+## **Triggers**
+
+* ### Retrieve points of the activity from _category (get_points)
+```sql
+REATE OR REPLACE FUNCTION get_points()
+RETURNS TRIGGER
+AS $$
+BEGIN
+        INSERT INTO _activity(Points) VALUES ((SELECT Points FROM _category AS c WHERE new.Name_ = c.Activity_type))
+        
+
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER get_points_trigger AFTER INSERT ON _activity
+FOR EACH ROW EXECUTE PROCEDURE get_points();
+```
+
