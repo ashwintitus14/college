@@ -64,7 +64,7 @@ VALUES
 ```
 ## **Functions**
 
-### Add new activity (add_activity)
+* ### Add new activity (add_activity)
 
 ```sql
 CREATE OR REPLACE FUNCTION add_activity ( name_ VARCHAR, category VARCHAR, date_ DATE, level_ INT)
@@ -81,4 +81,22 @@ LANGUAGE plpgsql;
 
 ```sql
 SELECT FROM add_activity( 'Debate'::VARCHAR, 'Literary arts'::VARCHAR, '2018-02-12'::DATE, 3);
+```
+* ### Add new student (add_student)
+
+```sql
+CREATE OR REPLACE FUNCTION add_student( roll_no int, name_ varchar, branch varchar, year_of_graduation int)
+RETURNS VOID
+AS $$
+BEGIN  
+        INSERT INTO _student(Roll_No, Name_, Branch, Year_of_Graduation) VALUES (roll_no, name_, branch, year_of_graduation);
+        RAISE NOTICE 'Student details added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+#### Function call
+
+```sql
+SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 ```
