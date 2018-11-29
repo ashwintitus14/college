@@ -130,6 +130,15 @@ SELECT add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 -- Function to update student's points
 
 CREATE OR REPLACE FUNCTION update_points( roll_no int, activity varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+		update _student set Points=Points+(select Points from _activity where activity=Name_);
+        RAISE NOTICE 'student details updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+
 
 
 --function to update teacher's details
