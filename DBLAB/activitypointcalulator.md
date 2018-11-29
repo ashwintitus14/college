@@ -48,7 +48,7 @@ CREATE TABLE _student(
         Points INT 
 );
 ```
-### Populating the _category table with sample data*
+### Populating the _category table with sample data
 
 ```sql
 INSERT INTO _category(Activity_type, Level_0, Level_1, Level_2, Level_3, Level_4, Level_5,Max_points)
