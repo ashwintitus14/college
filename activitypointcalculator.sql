@@ -161,17 +161,27 @@ LANGUAGE plpgsql;
 
 --Function to update Student's name
 
-CREATE OR REPLACE FUNCTION update_studentname( roll_No int, name_ varchar)
+CREATE OR REPLACE FUNCTION update_student_name( roll_no int, name_ varchar)
 RETURNS VOID
 AS $$
 BEGIN  
- 	update _student set Name_=name where Roll_no=roll_no; 
+ 	update _student set Name_=name_ where Roll_No=roll_no; 
         RAISE NOTICE 'student name updated successfully.';
 END;
 $$
 LANGUAGE plpgsql;
 
+-- Function to update student's branch
 
+CREATE OR REPLACE FUNCTION update_student_branch( roll_no int, branch varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+ 	update _student set Branch=branch where Roll_No=roll_no; 
+        RAISE NOTICE 'student branch updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
 
 
 
