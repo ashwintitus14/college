@@ -143,6 +143,20 @@ $$
 LANGUAGE plpgsql;
 
 
+--Function to update Student's name
+
+CREATE OR REPLACE FUNCTION update_studentname( roll_No int, name_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+ 	update from _student set Name_=name where Roll_no=roll_no; 
+        RAISE NOTICE 'student name updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+
+
+
 
 
 
