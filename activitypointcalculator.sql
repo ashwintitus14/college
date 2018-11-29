@@ -116,7 +116,16 @@ SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 CREATE OR REPLACE FUNCTION update_points( roll_no int, activity varchar)
 
 
-
+--function to update teacher's details
+CREATE OR REPLACE FUNCTION add_teacher( teacher_id int, name_ varchar, designation varchar, branch varchar,email varchar,password_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+        INSERT INTO _teacher(Teacher_id, Name_, Designation, Branch, Email, Password_) VALUES (teacher_id, name_, designation, branch, email, 					password_);
+        RAISE NOTICE 'Teacher details added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
 
 
 
