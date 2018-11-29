@@ -32,7 +32,7 @@ CREATE TABLE _activity(
         Category VARCHAR NOT NULL,
         Date_ DATE NOT NULL,
         Level_ INT NOT NULL,
-        Points INT
+        Points INT DEFAULT 0
 );
        
 CREATE TABLE _student(
@@ -40,7 +40,7 @@ CREATE TABLE _student(
         Name_ VARCHAR NOT NULL,
         Branch VARCHAR NOT NULL,
         Year_of_Graduation INT NOT NULL,
-        Points INT 
+        Points INT DEFAULT 0
 );
 
 -- Populating category table
@@ -81,7 +81,7 @@ CREATE OR REPLACE FUNCTION get_points()
 RETURNS TRIGGER
 AS $$
 BEGIN
-        udate _activity set Points=((SELECT Points FROM _category AS c WHERE new.Category = c.Activity_type AND new.Level_ = c.Level_));
+        UPDATE _activity SET Points=((SELECT Points FROM _category AS c WHERE new.Category = c.Activity_type AND new.Level_ = c.Level_));
         RETURN new;
 END;
 $$
@@ -137,7 +137,7 @@ RETURNS VOID
 AS $$
 BEGIN  
         INSERT INTO _admin(Admin_id, Name_, Email, Password_) VALUES ( admin_id, name_, email, password_);
-        RAISE NOTICE 'Student details added successfully.';
+        RAISE NOTICE 'Admin details added successfully.';
 END;
 $$
 LANGUAGE plpgsql;
