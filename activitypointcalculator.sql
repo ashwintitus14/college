@@ -171,7 +171,44 @@ END;
 $$
 LANGUAGE plpgsql;
 
--- Function to update student's branch
+--function to backup student data
+
+CREATE OR REPLACE FUNCTION backup()
+RETURNS VOID AS
+$$
+DECLARE
+    rec RECORD;
+    cur CURSOR FOR SELECT * FROM _student;
+BEGIN
+    FOR rec IN cur
+    LOOP
+        insert into _student_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
+        values(rec.Roll_No, rec.Name_, rec.Branch, rec.Year_of_Graduation, rec.Pointsrec);
+    END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+--function to backup student data when delete
+
+create or replace function del_backup()
+returns trigger as
+$$
+begin
+insert into _student_del_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
+values(old.Roll_No, old.Name_, old.Branch, old.Year_of_Graduation, old.Pointsrec);
+  return old;
+end;
+$$
+language plpgsql;
+
+create trigger del_backup before delete on _student
+for each row execute PROCEDURE del_backup();
+
+
+
+-- Function to update student branch
 
 CREATE OR REPLACE FUNCTION update_student_branch( roll_no int, branch varchar)
 RETURNS VOID
@@ -182,6 +219,7 @@ BEGIN
 END;
 $$
 LANGUAGE plpgsql;
+
 
 
 
