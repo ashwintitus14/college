@@ -183,7 +183,7 @@ BEGIN
     FOR rec IN cur
     LOOP
         insert into _student_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
-        values(rec.Roll_No, rec.Name_, rec.Branch, rec.Year_of_Graduation, rec.Pointsrec);
+        values(rec.Roll_No, rec.Name_, rec.Branch, rec.Year_of_Graduation, rec.Points);
     END LOOP;
 END;
 $$
