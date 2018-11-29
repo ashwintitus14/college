@@ -197,13 +197,13 @@ returns trigger as
 $$
 begin
 insert into _student_del_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
-values(old.Roll_No, old.Name_, old.Branch, old.Year_of_Graduation, old.Pointsrec);
+values(old.Roll_No, old.Name_, old.Branch, old.Year_of_Graduation, old.Points);
   return old;
 end;
 $$
 language plpgsql;
 
-create trigger del_backup before delete on _student
+create trigger del_backup after delete on _student
 for each row execute PROCEDURE del_backup();
 
 
