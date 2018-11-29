@@ -81,7 +81,7 @@ CREATE OR REPLACE FUNCTION get_points()
 RETURNS TRIGGER
 AS $$
 BEGIN
-        INSERT INTO _activity(Points) VALUES ((SELECT Points FROM _category AS c WHERE new.Category = c.Activity_type AND new.Level_ = c.Level_));
+        udate _activity set Points=((SELECT Points FROM _category AS c WHERE new.Category = c.Activity_type AND new.Level_ = c.Level_));
         RETURN new;
 END;
 $$
@@ -92,7 +92,7 @@ FOR EACH ROW EXECUTE PROCEDURE get_points();
 
 -- To call add_activity
 
-SELECT FROM add_activity( 'Guitar'::VARCHAR, 'Music'::VARCHAR, '2018-02-12'::DATE, 3);
+SELECT add_activity( 'Guitar'::VARCHAR, 'Music'::VARCHAR, '2018-02-12'::DATE, 3);
 
 -- Function to add student details
 
@@ -109,7 +109,7 @@ LANGUAGE plpgsql;
 
 -- To call add_student
 
-SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 
 -- Function to update student's points
 
@@ -149,7 +149,7 @@ CREATE OR REPLACE FUNCTION update_studentname( roll_No int, name_ varchar)
 RETURNS VOID
 AS $$
 BEGIN  
- 	update from _student set Name_=name where Roll_no=roll_no; 
+ 	update _student set Name_=name where Roll_no=roll_no; 
         RAISE NOTICE 'student name updated successfully.';
 END;
 $$
