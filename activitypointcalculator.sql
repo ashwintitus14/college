@@ -1,7 +1,7 @@
 -- DDL Commands
 
 CREATE TABLE _teacher(
-        T_id INT PRIMARY KEY UNIQUE NOT NULL,
+        Teacher_id INT PRIMARY KEY UNIQUE NOT NULL,
         Name_ VARCHAR NOT NULL,
         Designation VARCHAR NOT NULL,
         Branch VARCHAR NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE _teacher(
         
         
 CREATE TABLE _admin(
-        A_id INT PRIMARY KEY UNIQUE NOT NULL,
+        Admin_id INT PRIMARY KEY UNIQUE NOT NULL,
         Name_ VARCHAR NOT NULL,   
         Email VARCHAR NOT NULL UNIQUE,
         Password_ VARCHAR NOT NULL
@@ -21,12 +21,8 @@ CREATE TABLE _admin(
 CREATE TABLE _category(
         C_id SERIAL PRIMARY KEY UNIQUE NOT NULL,
         Activity_type VARCHAR NOT NULL,
-        Level_0 INT, 
-        Level_1 INT,
-        Level_2 INT,
-        Level_3 INT,
-        Level_4 INT,
-        Level_5 INT,
+        Level_ INT,
+		Points INT,
         Max_points INT NOT NULL
 );
         
@@ -49,15 +45,20 @@ CREATE TABLE _student(
 
 -- Populating category table
 
-INSERT INTO _category(Activity_type, Level_0, Level_1, Level_2, Level_3, Level_4, Level_5,Max_points)
+INSERT INTO _category(Activity_type, Level_, Points, Max_points)
 VALUES
-    ('Sports', 0, 8, 15, 25, 40, 60, 60),
-    ('Games', 0, 8, 15, 25, 40, 60, 60),
-    ('Music', 0, 8, 12, 20, 40, 60, 60),
-    ('Performing arts', 0, 8, 12, 20, 40, 60, 60),
-    ('Literary arts', 0, 8, 12, 20, 40, 60, 60),
-    ('Tech fest, Tech Quiz', 0, 10, 20, 30, 40, 50, 50),
-    ('MOOC with final assessment certificate', 50, 0, 0, 0, 0, 0, 50)
+    ('Sports', 0, 0, 60),
+    ('Sports', 1, 8, 60),
+    ('Sports', 2, 15, 60),
+    ('Sports', 3, 25, 60),
+    ('Sports', 4, 40, 60),
+    ('Sports', 5, 60, 60),	
+    ('Music', 0, 0, 60),
+    ('Music', 1, 8, 60),
+    ('Music', 2, 12, 60),
+    ('Music', 3, 20, 60),
+    ('Music', 4, 40, 60),
+    ('Music', 5, 60, 60)
 ;
 
 -- Functions
@@ -80,9 +81,8 @@ CREATE OR REPLACE FUNCTION get_points()
 RETURNS TRIGGER
 AS $$
 BEGIN
-        INSERT INTO _activity(Points) VALUES ((SELECT Points FROM _category AS c WHERE new.Name_ = c.Activity_type))
-        
-
+        INSERT INTO _activity(Points) VALUES ((SELECT Points FROM _category AS c WHERE new.Category = c.Activity_type AND new.Level_ = c.Level_));
+        RETURN new;
 END;
 $$
 LANGUAGE plpgsql;
@@ -92,7 +92,7 @@ FOR EACH ROW EXECUTE PROCEDURE get_points();
 
 -- To call add_activity
 
-SELECT FROM add_activity( 'Debate'::VARCHAR, 'Literary arts'::VARCHAR, '2018-02-12'::DATE, 3);
+SELECT FROM add_activity( 'Guitar'::VARCHAR, 'Music'::VARCHAR, '2018-02-12'::DATE, 3);
 
 -- Function to add student details
 
@@ -113,14 +113,7 @@ SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
 
 -- Function to update student's points
 
-CREATE OR REPLACE FUNCTION update_points( roll_no int, activity)
-
-
-
-
-
-
-
+CREATE OR REPLACE FUNCTION update_points( roll_no int, activity varchar)
 
 
 
