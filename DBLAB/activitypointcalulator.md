@@ -64,4 +64,21 @@ VALUES
 ```
 ## **Functions**
 
-### 
+### Add new activity (add_activity)
+
+```sql
+CREATE OR REPLACE FUNCTION add_activity ( name_ VARCHAR, category VARCHAR, date_ DATE, level_ INT)
+RETURNS VOID 
+AS $$
+BEGIN
+        INSERT INTO _activity(Name_, Category, Date_, Level_) VALUES (name_, category, date_, level_);
+        RAISE NOTICE 'Activity added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+#### Function call
+
+```sql
+SELECT FROM add_activity( 'Debate'::VARCHAR, 'Literary arts'::VARCHAR, '2018-02-12'::DATE, 3);
+```
