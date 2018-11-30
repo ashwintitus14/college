@@ -215,6 +215,22 @@ LANGUAGE plpgsql;
 ```sql
 SELECT update_student_branch( 42, 'ECE'::VARCHAR);
 ```
+* ### Export student's database to a .csv file (export_student_to_csv)
+```sql
+CREATE OR REPLACE FUNCTION export_student_to_csv()
+RETURNS VOID
+AS $$
+BEGIN
+	COPY (SELECT * FROM _student) TO '/tmp/student.csv' WITH CSV DELIMITER ',';
+	RAISE NOTICE 'Exported to CSV file at /tmp/student.csv';
+END;
+$$
+LANGUAGE plpgsql;
+```
+> Function call
+```sql
+SELECT export_student_to_csv();
+```
 
 ## **Triggers**
 
@@ -235,3 +251,41 @@ CREATE TRIGGER get_points_trigger AFTER INSERT ON _activity
 FOR EACH ROW EXECUTE PROCEDURE get_points();
 ```
 
+* ### Backs up each deleted record from _student (del_backup)
+```sql
+create or replace function del_backup()
+returns trigger as
+$$
+begin
+insert into _student_del_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
+values(old.Roll_No, old.Name_, old.Branch, old.Year_of_Graduation, old.Points);
+  return old;
+end;
+$$
+language plpgsql;
+
+create trigger del_backup after delete on _student
+for each row execute PROCEDURE del_backup();
+```
+
+## **Cursor**
+
+* ### Backs up the entire student table when called (backup)
+
+```sql
+CREATE OR REPLACE FUNCTION backup()
+RETURNS VOID AS
+$$
+DECLARE
+    rec RECORD;
+    cur CURSOR FOR SELECT * FROM _student;
+BEGIN
+    FOR rec IN cur
+    LOOP
+        INSERT INTO _student_backup(Roll_No, Name_, Branch, Year_of_Graduation, Points)
+        VALUES(rec.Roll_No, rec.Name_, rec.Branch, rec.Year_of_Graduation, rec.Points);
+    END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
+```
