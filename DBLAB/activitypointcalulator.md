@@ -1,5 +1,11 @@
 # Activity Point Calculator (Database Lab Project)
 
+#### Table of Contents
+* [Setup](#setup)
+* [Functions](#functions)
+* [Triggers](#triggers)
+* [Cursor](#cursor)
+
 ## **Setup**
 ### DDL Commands
 
