@@ -67,15 +67,20 @@ CREATE TABLE _student_del_backup(
 ### Populating the _category table with sample data
 
 ```sql
-INSERT INTO _category(Activity_type, Level_0, Level_1, Level_2, Level_3, Level_4, Level_5,Max_points)
+INSERT INTO _category(Activity_type, Level_, Points, Max_points)
 VALUES
-    ('Sports', 0, 8, 15, 25, 40, 60, 60),
-    ('Games', 0, 8, 15, 25, 40, 60, 60),
-    ('Music', 0, 8, 12, 20, 40, 60, 60),
-    ('Performing arts', 0, 8, 12, 20, 40, 60, 60),
-    ('Literary arts', 0, 8, 12, 20, 40, 60, 60),
-    ('Tech fest, Tech Quiz', 0, 10, 20, 30, 40, 50, 50),
-    ('MOOC with final assessment certificate', 50, 0, 0, 0, 0, 0, 50)
+    ('Sports', 0, 0, 60),
+    ('Sports', 1, 8, 60),
+    ('Sports', 2, 15, 60),
+    ('Sports', 3, 25, 60),
+    ('Sports', 4, 40, 60),
+    ('Sports', 5, 60, 60),	
+    ('Music', 0, 0, 60),
+    ('Music', 1, 8, 60),
+    ('Music', 2, 12, 60),
+    ('Music', 3, 20, 60),
+    ('Music', 4, 40, 60),
+    ('Music', 5, 60, 60)
 ;
 ```
 ## **Functions**
@@ -114,7 +119,25 @@ LANGUAGE plpgsql;
 > Function call
 
 ```sql
-SELECT FROM add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
+```
+* ### Add new teacher (add_teacher)
+
+```sql
+CREATE OR REPLACE FUNCTION add_teacher( teacher_id int, name_ varchar, designation varchar, branch varchar,email varchar,password_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+        INSERT INTO _teacher(Teacher_id, Name_, Designation, Branch, Email, Password_) VALUES (teacher_id, name_, designation, branch, email, 					password_);
+        RAISE NOTICE 'Teacher details added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+> Function call
+
+```sql
+SELECT add_teacher(1001,'Jiphi T S'::varchar,'Professor'::varchar,'IT'::varchar,'jiphits@gmail.com'::varchar,'asdfdfg21'::varchar);
 ```
 
 ## **Triggers**
