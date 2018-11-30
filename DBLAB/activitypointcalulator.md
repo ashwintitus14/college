@@ -120,6 +120,11 @@ LANGUAGE plpgsql;
 
 ```sql
 SELECT add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(44, 'Sarath A R'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(29, 'K Manikantan'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(42, 'Rahul R'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(11, 'Arjun T B'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(15, 'Ashwin Titus'::varchar, 'IT'::varchar, 2020);
 ```
 * ### Add new teacher (add_teacher)
 
@@ -138,6 +143,24 @@ LANGUAGE plpgsql;
 
 ```sql
 SELECT add_teacher(1001,'Jiphi T S'::varchar,'Professor'::varchar,'IT'::varchar,'jiphits@gmail.com'::varchar,'asdfdfg21'::varchar);
+```
+* ### Add new admin (add_admin)
+
+```sql
+CREATE OR REPLACE FUNCTION add_admin( admin_id int, name_ varchar, email varchar, password_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+        INSERT INTO _admin(Admin_id, Name_, Email, Password_) VALUES ( admin_id, name_, email, password_);
+        RAISE NOTICE 'Admin details added successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+> Function call
+
+```sql
+SELECT add_admin(1, 'Abhijith R', 'abhijithcr7@gmail.com', 'ronaldo123');
 ```
 
 ## **Triggers**
