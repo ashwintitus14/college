@@ -124,7 +124,7 @@ SELECT add_student(44, 'Sarath A R'::VARCHAR, 'IT'::VARCHAR, 2020);
 SELECT add_student(29, 'K Manikantan'::VARCHAR, 'IT'::VARCHAR, 2020);
 SELECT add_student(42, 'Rahul R'::VARCHAR, 'IT'::VARCHAR, 2020);
 SELECT add_student(11, 'Arjun T B'::VARCHAR, 'IT'::VARCHAR, 2020);
-SELECT add_student(15, 'Ashwin Titus'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(15, 'Aswin Titus'::VARCHAR, 'IT'::VARCHAR, 2020);
 ```
 * ### Add new teacher (add_teacher)
 
@@ -182,8 +182,39 @@ LANGUAGE plpgsql;
 ```sql
 SELECT update_points( 29, 'Chess Zonal'::VARCHAR);
 ```
+* ### Update student's name (update_student_name)
+```sql
+CREATE OR REPLACE FUNCTION update_student_name( roll_no int, name_ varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+ 	update _student set Name_=name_ where Roll_No=roll_no; 
+        RAISE NOTICE 'student name updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
 
-
+> Function call
+```sql
+SELECT update_student_name(15,'Ashwin Titus'::VARCHAR);
+```
+* ### Update student's branch (update_student_branch)
+```sql
+CREATE OR REPLACE FUNCTION update_student_branch( roll_no int, branch varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+ 	update _student set Branch=branch where Roll_No=roll_no; 
+        RAISE NOTICE 'student branch updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+> Function call
+```sql
+SELECT update_student_branch( 42, 'ECE'::VARCHAR);
+```
 
 ## **Triggers**
 
