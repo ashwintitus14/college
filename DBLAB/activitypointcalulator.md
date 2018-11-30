@@ -1,4 +1,4 @@
-# Activity Point Calculator (Database Lab Project)
+# Activity Point Calculator (Database Lab Project) using PostgreSQL
 
 #### Table of Contents
 * [Setup](#setup)
