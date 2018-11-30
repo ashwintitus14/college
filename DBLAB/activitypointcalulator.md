@@ -119,21 +119,21 @@ LANGUAGE plpgsql;
 > Function call
 
 ```sql
-SELECT add_student(65, 'Vaisakh K'::varchar, 'IT'::varchar, 2020);
-SELECT add_student(44, 'Sarath A R'::varchar, 'IT'::varchar, 2020);
-SELECT add_student(29, 'K Manikantan'::varchar, 'IT'::varchar, 2020);
-SELECT add_student(42, 'Rahul R'::varchar, 'IT'::varchar, 2020);
-SELECT add_student(11, 'Arjun T B'::varchar, 'IT'::varchar, 2020);
-SELECT add_student(15, 'Ashwin Titus'::varchar, 'IT'::varchar, 2020);
+SELECT add_student(65, 'Vaisakh K'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(44, 'Sarath A R'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(29, 'K Manikantan'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(42, 'Rahul R'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(11, 'Arjun T B'::VARCHAR, 'IT'::VARCHAR, 2020);
+SELECT add_student(15, 'Ashwin Titus'::VARCHAR, 'IT'::VARCHAR, 2020);
 ```
 * ### Add new teacher (add_teacher)
 
 ```sql
-CREATE OR REPLACE FUNCTION add_teacher( teacher_id int, name_ varchar, designation varchar, branch varchar,email varchar,password_ varchar)
+CREATE OR REPLACE FUNCTION add_teacher( teacher_id INT, name_ VARCHAR, designation VARCHAR, branch VARCHAR,email VARCHAR,password_ VARCHAR)
 RETURNS VOID
 AS $$
 BEGIN  
-        INSERT INTO _teacher(Teacher_id, Name_, Designation, Branch, Email, Password_) VALUES (teacher_id, name_, designation, branch, email, 					password_);
+        INSERT INTO _teacher(Teacher_id, Name_, Designation, Branch, Email, Password_) VALUES (teacher_id, name_, designation, branch, email, password_);
         RAISE NOTICE 'Teacher details added successfully.';
 END;
 $$
@@ -142,12 +142,12 @@ LANGUAGE plpgsql;
 > Function call
 
 ```sql
-SELECT add_teacher(1001,'Jiphi T S'::varchar,'Professor'::varchar,'IT'::varchar,'jiphits@gmail.com'::varchar,'asdfdfg21'::varchar);
+SELECT add_teacher(1001,'Jiphi T S'::VARCHAR,'Professor'::VARCHAR,'IT'::VARCHAR,'jiphits@gmail.com'::VARCHAR,'asdfdfg21'::VARCHAR);
 ```
 * ### Add new admin (add_admin)
 
 ```sql
-CREATE OR REPLACE FUNCTION add_admin( admin_id int, name_ varchar, email varchar, password_ varchar)
+CREATE OR REPLACE FUNCTION add_admin( admin_id INT, name_ VARCHAR, email VARCHAR, password_ VARCHAR)
 RETURNS VOID
 AS $$
 BEGIN  
@@ -160,8 +160,30 @@ LANGUAGE plpgsql;
 > Function call
 
 ```sql
-SELECT add_admin(1, 'Abhijith R', 'abhijithcr7@gmail.com', 'ronaldo123');
+SELECT add_admin(1, 'Abhijith R'::VARCHAR, 'abhijithcr7@gmail.com'::VARCHAR, 'ronaldo123'::VARCHAR);
 ```
+
+* ### Update student's points (update_points)
+
+```sql
+CREATE OR REPLACE FUNCTION update_points( roll_no int, activity varchar)
+RETURNS VOID
+AS $$
+BEGIN  
+		UPDATE _student SET Points=Points+(SELECT Points FROM _activity WHERE activity=Name_);
+        RAISE NOTICE 'Student details updated successfully.';
+END;
+$$
+LANGUAGE plpgsql;
+```
+
+> Function call
+
+```sql
+SELECT update_points( 29, 'Chess Zonal'::VARCHAR);
+```
+
+
 
 ## **Triggers**
 
