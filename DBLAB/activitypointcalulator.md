@@ -7,7 +7,7 @@
 * K Manikantan
 * Rahul R
 * Sarath A R
-* Vaishakh K
+* Vaisakh K
 
 #### Table of Contents
 * [Setup](#setup)
