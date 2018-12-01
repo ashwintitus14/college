@@ -1,5 +1,14 @@
 # Activity Point Calculator (Database Lab Project) using PostgreSQL
 
+#### Team Members
+* Abhijith R
+* Arjun T B
+* Ashwin Titus
+* K Manikantan
+* Rahul R
+* Sarath A R
+* Vaishakh K
+
 #### Table of Contents
 * [Setup](#setup)
 * [Functions](#functions)
