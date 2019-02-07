@@ -27,7 +27,7 @@
     * Bits -> Characters -> Field -> Record -> File -> Database
 * Interpreted programs can run as soon as they're downloaded by the broweser and do not have to wait for compilation but they generally run slower than compiled programs.
 
-# Introduction to HTML5: Part 1
+# Chapter 2 - Introduction to HTML5: Part 1
 
 * HTML is a markup language.
 * .html or .htm
