@@ -41,5 +41,19 @@
 * \<html lang = "en"> : Sets language of document as English. Useful for internationalization.
 * Headings at the top of the page are indexed by search engines.
 * Headings from \<h1> to \<h6>.
+* Any displayed element can act as a hyperlink.
+* \<strong> element is used to make text bold.
+* \<a href = "URL"> : a - anchor element, href - hypertext reference
+* If web server cannot locate a document specified by a URL it returns Error 404.
+* index.html is the default web page that is displayed if no filename is specified as part of the URL.
+* \<a href = "mailto:EmailAddress"> : Attribute used to open mail client with To column filled.
+* PNG : Portable Network Graphics
+* JPEG : Joint Photographic Experts Group
+* <img src = "image_path" height = "213" width = "123" alt = "asdf">
+    * Relative path is used for the image.
+    * Always include height and width in the img tag so that browser can lay out the page properly and render the page faster.
+    * alt attribute describe's the image's contents and is displayed if image is not found. Useful for speech synthesizers for visually impaired people.
+* Void elements do not enclose any text in between opening and closing tags. eg. img element - Can be terminated with a /. eg. <img src = "image_path" height = "213" width = "123" alt = "asdf" />
+* To use images as hyperlinks enclose/nest img element inside anchor element. 
 * 
 
