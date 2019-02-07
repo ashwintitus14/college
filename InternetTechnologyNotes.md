@@ -20,4 +20,26 @@
 * Sensitive information like passwords should not processed/validated on the client's side. Client can view source. All validation must be mirrored on the server side.
 * W3C - World Wide Web Consortium - Founded by Tim Berner's Lee in October 1994.
 * Recommendations : Web technologies standardized by W3C.
+* Web 2.0 : Term coined by Dale Doughery of O'Reilly Media - Includes social networking sites, blogs, wikis. - Users create, update, modify, critique content.
+* Semantic Web : Computers understanding the meaning of data on the web.
+* Ajax : Allows web applications to perform like desktop applications.
+* Data Heirarchy
+    * Bits -> Characters -> Field -> Record -> File -> Database
+* Interpreted programs can run as soon as they're downloaded by the broweser and do not have to wait for compilation but they generally run slower than compiled programs.
+
+# Introduction to HTML5: Part 1
+
+* HTML is a markup language.
+* .html or .htm
+* DOCTYPE : Document type declaration - Required in HTML5 documents. - Ensures that the browser renders the page in **standards** mode instead of **quirks** (to maintain backward compatibilty for old websites) mode.
+* \<!--comments-->
+* \<head> element contains information about the HTML5 document.
+* Void elements don't have end tags.
+* Title enclosed by \<title> tag appears on the title bar of the browser. Used by search engines for indexing purposes.
+* When a browser renders a paragraph it places extra space above and below the paragraph text. ( \<p>paratext\</p> )
+* Use HTML5 validation services to check syntax of HTML5 documents.
+* \<html lang = "en"> : Sets language of document as English. Useful for internationalization.
+* Headings at the top of the page are indexed by search engines.
+* Headings from \<h1> to \<h6>.
 * 
+
