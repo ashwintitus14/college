@@ -49,11 +49,11 @@
 * \<a href = "mailto:EmailAddress"> : Attribute used to open mail client with To column filled.
 * PNG : Portable Network Graphics
 * JPEG : Joint Photographic Experts Group
-* <img src = "image_path" height = "213" width = "123" alt = "asdf">
+* \<img src = "image_path" height = "213" width = "123" alt = "asdf">
     * Relative path is used for the image.
     * Always include height and width in the img tag so that browser can lay out the page properly and render the page faster.
     * alt attribute describe's the image's contents and is displayed if image is not found. Useful for speech synthesizers for visually impaired people.
-* Void elements do not enclose any text in between opening and closing tags. eg. img element - Can be terminated with a /. eg. <img src = "image_path" height = "213" width = "123" alt = "asdf" />
+* Void elements do not enclose any text in between opening and closing tags. eg. img element - Can be terminated with a /. eg. \<img src = "image_path" height = "213" width = "123" alt = "asdf" />
 * To use images as hyperlinks enclose/nest img element inside anchor element. 
 * 
 
