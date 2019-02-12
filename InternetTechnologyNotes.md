@@ -55,5 +55,14 @@
     * alt attribute describe's the image's contents and is displayed if image is not found. Useful for speech synthesizers for visually impaired people.
 * Void elements do not enclose any text in between opening and closing tags. eg. img element - Can be terminated with a /. eg. \<img src = "image_path" height = "213" width = "123" alt = "asdf" />
 * To use images as hyperlinks enclose/nest img element inside anchor element. 
+* Character entity references : &code; - Used to represent special characters in HTML. eg. **<**  \&lt; **'**  \&apos; **>**  \&gt; **"**  \&quot; Check figure 2.8 page 49.
+* Numeric character references: & can be represented by \&#38; (Decimal) and \&#x26; (Hex). These are the ASCII values of &.
+* \<hr> : Inserts a horizontal line. - Avoid using this tag. Use CSS instead. Legacy code.
+* \<del>...\</del> : Used to strike out content in between tags. Strike through text.
+* \<sub>...\</sub> : Content in between tags is displayes as subscript.
+* \<sup>...\</sup> : Content in between tags is displayed as superscript.
+* In HTML5 &amp; is not required to represent &.
+* \<ul>\<li>asdf\</li>\</ul> : Unordered list
+* \<ol>\<li>asdf\</li>\</ol> : Ordered list
 * 
 
