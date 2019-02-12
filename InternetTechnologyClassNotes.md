@@ -10,7 +10,7 @@
           }
 ```
 * Tag {Property:Value;}
-* <em> : To display the text in italics.
+* /<em> : To display the text in italics.
 * Ways to insert CSS:
   * Inline styles - Inside the tag
   * Embedded style sheets - Inside the same page but outside the tag
