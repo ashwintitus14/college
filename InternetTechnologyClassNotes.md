@@ -25,21 +25,21 @@
 * Embedded style sheets - Apply for all instances of a tag everywhere.
 ```html
 <style type = "text/css">
-			body {
-					background-color: powderblue;
-			}
-			em {
-					font-weight: bold;
-					color: black;
-			}
-			p {
-					color: red; 
-					font-family: comic-sans;
-			}
-			.special {
-						color: purple;
-						color: green
-			}
+	body {
+		background-color: powderblue;
+		}
+	em {
+		font-weight: bold;
+		color: black;
+		}
+	p {
+		color: red; 
+		font-family: comic-sans;
+		}
+	.special {
+		color: purple;
+		color: green
+		}
 </style>
 ```
 
