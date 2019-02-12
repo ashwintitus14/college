@@ -3,12 +3,13 @@
 * Makes presentation/style of the page independent of the content and structure.
 * CSS rule set : Selector-Declaration block
 * eg. 
-```css
+```html
       h1 {
           color:blue; 
           font-size:12px;
-          }
+      }
 ```
+
 * Tag {Property:Value;}
 * \<em> : To display the text in italics.
 * Ways to insert CSS:
@@ -27,19 +28,19 @@
 <style type = "text/css">
 	body {
 		background-color: powderblue;
-		}
+	}
 	em {
 		font-weight: bold;
 		color: black;
-		}
+	}
 	p {
 		color: red; 
 		font-family: comic-sans;
-		}
+	}
 	.special {
 		color: purple;
 		color: green
-		}
+	}
 </style>
 ```
 
