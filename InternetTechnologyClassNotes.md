@@ -14,4 +14,7 @@
   * Inline styles - Inside the tag
   * Embedded style sheets - Inside the same page but outside the tag
   * External style sheets
-  
+* Inline style
+```html
+<p style="color:red; font-size:12px>Hello</p>
+```
