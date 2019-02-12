@@ -10,6 +10,7 @@
           }
 ```
 * Tag {Property:Value;}
+* <em> : To display the text in italics.
 * Ways to insert CSS:
   * Inline styles - Inside the tag
   * Embedded style sheets - Inside the same page but outside the tag
@@ -18,3 +19,27 @@
 ```html
 <p style="color:red; font-size:12px>Hello</p>
 ```
+
+* When multiple font families are specified each one is used from left to right based on availability.
+* If same attributes are used multipe times, the latest one overrides the rest.
+* Embedded style sheets - Apply for all instances of a tag everywhere.
+```html
+<style type = "text/css">
+			body {
+					background-color: powderblue;
+			}
+			em {
+					font-weight: bold;
+					color: black;
+			}
+			p {
+					color: red; 
+					font-family: comic-sans;
+			}
+			.special {
+						color: purple;
+						color: green
+			}
+		</style>
+```
+
