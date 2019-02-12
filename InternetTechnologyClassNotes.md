@@ -3,7 +3,7 @@
 * Makes presentation/style of the page independent of the content and structure.
 * CSS rule set : Selector-Declaration block
 * eg. 
-```html
+```css
       h1 {
           color:blue; 
           font-size:12px;
