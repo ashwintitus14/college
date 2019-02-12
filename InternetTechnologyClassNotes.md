@@ -40,6 +40,6 @@
 						color: purple;
 						color: green
 			}
-		</style>
+</style>
 ```
 
