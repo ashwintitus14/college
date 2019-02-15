@@ -3,7 +3,7 @@
 * HTML (HyperText Markup Language) : Specifies the **content** and **structure** of portable web pages.
 * XHTML (eXtensible HTML)
 * CSS (Cascading Style Sheets) : Specifies the **presentation** and **styling** of portable web pages independent of content and structure.
-* JavaScript : Used to build **dynamic** web pages that respond to **events** and for client side programming. ECMAScipt5 - latest version.
+* JavaScript : Used to build **dynamic** web pages that respond to **events** and for client side programming. ECMAScipt5 - latest version. - ECMA (European Computer Manufacturers Association)
 * jQuery : JavaScript library with more GUI features
 * Validators : Used to ensure that browsers process our code properly.
 * mailto:emailAddress : Can be used as a hyperlink to open the default mail program with the "To" address filled.
@@ -25,7 +25,7 @@
 * Ajax : Allows web applications to perform like desktop applications.
 * Data Heirarchy
     * Bits -> Characters -> Field -> Record -> File -> Database
-* Interpreted programs can run as soon as they're downloaded by the broweser and do not have to wait for compilation but they generally run slower than compiled programs.
+* Interpreted programs can run as soon as they're downloaded by the browser and do not have to wait for compilation but they generally run slower than compiled programs.
 
 # Chapter 2 - Introduction to HTML5: Part 1
 
@@ -64,5 +64,77 @@
 * In HTML5 &amp; is not required to represent &.
 * \<ul>\<li>asdf\</li>\</ul> : Unordered list
 * \<ol>\<li>asdf\</li>\</ol> : Ordered list
-* 
-
+* \<table> element is used to create tables.
+* \<table border = "1"> : Specifies that the browser should place borders around the table and the table's cells. Avoid using the border attribute. Use CSS's border property.
+* \<table><caption>abc\</caption>... : Text inside caption tags is rendered above the table.
+* \<table summary = "XTZ"> : Can be used by screen readers for disabled people. No visual effect. Obsolete in HTML5.
+* \<thead> : Table head. - Uses \<th> tags for data.
+* \<tfoot> : Table foot. - Uses \<th> tags for data.
+* \<tbody> : Table body. - Content left aligned. Uses \<td> tags for data - left alignment. \<th> tags can also be used for bold and central alignment.
+* \<tr> : Row of a table.
+* By default table cells are only as wide as their largest element.
+* \<th rowspan = "2"> : Merges two rows.
+* \<th colspan = "5"> : Merges five columns.
+* \<br> : Line break
+* Form example
+```html
+<form method = "get" action = "http://www.deitel.com">
+    <input type = "hidden" name = "recipient" value = "deitel@deitel.com">
+    <input type = "hidden" name = "subject" value = "Feedback form">
+    <input type = "hidden" name = "redirect" value = "main.html">
+    <p><label>Name:
+        <input name = "name" type = "text" size = "25" maxlength = "30">
+    </label></p>
+    <p>
+        <input type = "submit" value = "Submit">
+        <input type = "reset" value = "Reset">
+    </p>
+</form>
+```
+* "method" attribute can have the value "get" or "post".
+* "action" attribute specifies the URL of the form handler script on the web server.
+* "hidden" inputs allows us to send data that is not input by a user. Value in "name" attribute is used by the form handler to refer to the sent data. "value" is the data that is sent.
+* "redirect" opens the page in "value" after the submit button has been clicked.
+* "size" attribute specified the size of the text box.
+* The value attribute of the reset and submit input element sets the text displayed on the button (the
+default value is Reset and Submit if you omit the value attribute).
+* Password box - Characters masked with asterisks. - Actual data sent to server.
+```html
+ <p>
+    <label>
+        Password:
+        <input type = "password" name = "password" size = "25">
+    </label>
+</p>
+```
+* Checkbox - Checkboxes that belong to a group are assigned the same name. - Make sure that have different values so that web server can distinguish them.
+```html
+<label>Site design
+    <input name  = "thingsiliked" type = "checkbox" value = "Design">
+</label>
+<label>Links
+    <input name = "thingsiliked" type = "checkbox" value = "Links">
+</label>
+```
+* Radio button - Only 1 radio button can be selected at a time. - Radio buttons in a group have the dame name attributes and are distinguished by their different values.
+```html
+<label>Search engine
+    <input name = "how" type = "radio" value = "search engine" checked>
+</label>
+<label>Other
+    <input name = "how" type = "radio" value = "other">
+</label>
+```
+* Drop-down list
+```html
+<label>Rate our site:
+    <select name = "rating">
+        <option selected>Amazing</option>
+        <option>Great</option>
+        <option>Not bad</option>
+        <option>Average</option>
+        <option>Bad</option>
+        <option>Awful</option>
+    </select>
+</label>
+```
