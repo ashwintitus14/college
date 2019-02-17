@@ -33,16 +33,18 @@
 * .html or .htm
 * DOCTYPE : Document type declaration - Required in HTML5 documents. - Ensures that the browser renders the page in **standards** mode instead of **quirks** (to maintain backward compatibilty for old websites) mode.
 * \<!--comments-->
-* \<head> element contains information about the HTML5 document.
+* \<head> element contains information about the HTML5 document. Not displayed.
+* UTF-8 (U from Universal Character Set + Transformation Format—8-bit) is a character encoding capable of encoding all possible characters (called code points) in Unicode. The encoding is variable-length and uses 8-bit code units. Displays many languages correctly.
 * Void elements don't have end tags.
 * Title enclosed by \<title> tag appears on the title bar of the browser. Used by search engines for indexing purposes.
 * When a browser renders a paragraph it places extra space above and below the paragraph text. ( \<p>paratext\</p> )
-* Use HTML5 validation services to check syntax of HTML5 documents.
+* Use HTML5 validation services to check syntax of HTML5 documents. eg. validator.w3.org
 * \<html lang = "en"> : Sets language of document as English. Useful for internationalization.
 * Headings at the top of the page are indexed by search engines.
 * Headings from \<h1> to \<h6>.
 * Any displayed element can act as a hyperlink.
 * \<strong> element is used to make text bold.
+* \<em> element is used to italicize text.
 * \<a href = "URL"> : a - anchor element, href - hypertext reference
 * If web server cannot locate a document specified by a URL it returns Error 404.
 * index.html is the default web page that is displayed if no filename is specified as part of the URL.
@@ -76,9 +78,9 @@
 * \<th rowspan = "2"> : Merges two rows.
 * \<th colspan = "5"> : Merges five columns.
 * \<br> : Line break
-* Form example
+* **Form** example
 ```html
-<form method = "get" action = "http://www.deitel.com">
+<form method = "post" action = "http://www.deitel.com">
     <input type = "hidden" name = "recipient" value = "deitel@deitel.com">
     <input type = "hidden" name = "subject" value = "Feedback form">
     <input type = "hidden" name = "redirect" value = "main.html">
@@ -107,6 +109,13 @@ default value is Reset and Submit if you omit the value attribute).
     </label>
 </p>
 ```
+* Text area
+```html
+<p><label>Comments: <br>
+<textarea name = "comments"
+rows = "4" cols = "36">Enter comments here.</textarea>
+</label></p>
+```
 * Checkbox - Checkboxes that belong to a group are assigned the same name. - Make sure that have different values so that web server can distinguish them.
 ```html
 <label>Site design
@@ -116,7 +125,7 @@ default value is Reset and Submit if you omit the value attribute).
     <input name = "thingsiliked" type = "checkbox" value = "Links">
 </label>
 ```
-* Radio button - Only 1 radio button can be selected at a time. - Radio buttons in a group have the dame name attributes and are distinguished by their different values.
+* Radio button - Only 1 radio button can be selected at a time. - Radio buttons in a group have the same name attributes and are distinguished by their different values.
 ```html
 <label>Search engine
     <input name = "how" type = "radio" value = "search engine" checked>
@@ -138,3 +147,23 @@ default value is Reset and Submit if you omit the value attribute).
     </select>
 </label>
 ```
+* For internal links:
+\<h1 id = "abc">ABC\</h1>
+\<a href = "#abc">Go to ABC\</a>
+* Internal link to another file:
+\<a href = "URL/filename.html#id">Go to abc\</a>
+* "meta" elements are crawled by search engines. Information in them can be used for SEO (Search Engine Optimization). **name** identifies the type of meta element and **content** provides the information for search engines. Use only inside head section of HTML5 document.
+eg.
+```html
+<meta name = "keywords" content = "web page, design,
+HTML5, tutorial, personal, help, index, form,
+contact, feedback, list, links, deitel">
+<meta name = "description" content = "This website will
+help you learn the basics of HTML5 and web page design
+through the use of interactive examples and
+instruction.">
+```
+
+# Chapter 3 - Introduction to HTML5: Part 2
+
+* 
