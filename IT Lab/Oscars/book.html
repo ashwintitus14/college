@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Book tickets!</title>
+		<meta charset = "utf-8">
+		<style>
+			.content {
+		  	max-width: 500px;
+		  	margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">		
+			<h1 align="center">Book tickets!</h1>
+			<form method = "post" action = "book1.html">
+				<p><label>Name:
+					<input name = "name" type = "text" size = "25" maxlength = "30">
+				</label></p>
+				<p>Date:
+					<input type="date" name="day">
+				</p>
+				<p>Food preference:<br>
+					<label>
+						<input name = "food" type="checkbox" value="popcorn">
+						Popcorn  <strong>$5</strong>
+					</label><br>
+					<label>
+						<input name = "food" type="checkbox" value="popcorn">
+						Popcorn + Coke  <strong>$7</strong>					
+					</label><br>
+					<label>
+						<input name = "food" type="checkbox" value="popcorn">
+						Nachos  <strong>$5</strong>					
+					</label><br>
+					<label>
+						<input name = "food" type="checkbox" value="popcorn">
+						Coke <strong>$3</strong>					
+					</label>
+				</p>
+				<p><label>Select a movie:
+					<select name = "movie">
+						<option>Green Book</option>
+						<option>Black Panther</option>
+						<option>BlacKkKlansman</option>
+						<option>Bohemian Rhapsody</option>
+						<option>The Favourite</option>
+						<option>Roma</option>
+						<option>A Star Is Born</option>
+						<option>Vice</option>
+					</select>
+				</label></p>
+				<p>
+					<input type="submit" value = "Book">
+					<input type="reset">
+				</p>
+			</form>
+		</div>
+	</body>
+</html>
+		
