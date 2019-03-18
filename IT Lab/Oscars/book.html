@@ -14,11 +14,68 @@
 	</head>
 
 	<body>
+		<h1 align="center">Book tickets!</h1>
+		<table border = "1" align="center">
+			<tr>
+				<th></th>				
+				<th>Green Book</th>
+				<th>Black Panther</th>
+				<th>BlacKkKlansman</th>
+				<th>Bohemian Rhaposdy</th>
+				<th>The Favourite</th>
+				<th>Roma</th>
+				<th>A Star Is Born</th>
+				<th>Vice</th>
+			</tr>
+			<tr>
+				<th>NYC Cineplex</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✖</th>
+			</tr>
+			<tr>
+				<th>Carnival Cineplex</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✔</th>
+			</tr>
+			<tr>
+				<th>Ariesplex</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✔</th>
+			</tr>
+			<tr>
+				<th>New Jersey Cineplex</th>
+				<th>✔</th>
+				<th>✖</th>
+				<th>✖</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✔</th>
+				<th>✖</th>
+			</tr>
+		</table>		
 		<div class="content">		
-			<h1 align="center">Book tickets!</h1>
 			<form method = "post" action = "book1.html">
 				<p><label>Name:
-					<input name = "name" type = "text" size = "25" maxlength = "30">
+					<input name = "name" type = "text" size = "25" maxlength = "30" autocomplete>
 				</label></p>
 				<p>Date:
 					<input type="date" name="day">
@@ -53,10 +110,20 @@
 						<option>Vice</option>
 					</select>
 				</label></p>
+				<p><label for="datalist">Other requirements:
+					<input type = "text" id="datalist" list="options" />
+					<datalist id="options">
+						<option value = "Parking">
+						<option value = "Extra leg space">
+					</datalist>
+				</label>
+				</p>
+				
 				<p>
 					<input type="submit" value = "Book">
 					<input type="reset">
 				</p>
+				
 			</form>
 		</div>
 	</body>
