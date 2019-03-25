@@ -12,7 +12,5 @@ function fib() {
 	var i;
 	for (i=0; i <= n; i++) {
 		document.write(fibrec(i)+'<br>');
-		//document.getElementById("result").innerHTML=fibrec(n);
-	
 	}
 }
