@@ -28,4 +28,6 @@
     }
     
     mysqli_close($conn);
+
+    echo '<p><a href="mainmenu.html">Go back to Main Menu</a></p>';
 ?>
