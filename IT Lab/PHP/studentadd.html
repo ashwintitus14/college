@@ -4,17 +4,44 @@
     <head>
         <title>Add a student</title>
         <meta charset="utf-8">
+        <style>
+            input, textarea, select {
+                width: 20%;
+            }
+            form, h1 {
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
+        <h1>Add a new student record</h1>
+        <hr>
         <form method="post" action="addstud.php">
-            Name: <input type="text" name="name">
+            Name: <br><input type="text" name="name">
             <br><br>
-            Roll No.: <input type="text" name="rollno">
+            Roll No.: <br><input type="text" name="rollno">
             <br><br>
-            Branch: <input type="text" name="branch">
+            Branch: <br><select name="branch">
+                <option value="IT">IT</option>
+                <option value="ME">ME</option>
+                <option value="EEE">EEE</option>
+                <option value="ECE">ECE</option>
+                <option value="CE">CE</option>
+            </select>
             <br><br>
+            Gender: <br><select name="gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Others</option>
+            </select>
+            <br><br>
+            Email: <br><input type="text" name="email">
+            <br><br>
+            Address: <br><textarea name="address" placeholder="No special characters"></textarea>
+            <br><br><hr>
             <input type="submit" name="submit">
+            <input type="reset" name="reset">
         </form>
     </body>
 </html>
