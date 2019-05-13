@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
-    $username = "uname";
-    $password = "pass";
+    $username = "root";
+    $password = "root";
     $dbname = "phptest";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -9,9 +9,16 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
+    echo "Connected successfully<br>";
 
-    $sql = "INSERT INTO student (name, rollno, branch) VALUES ('".$_POST['name']."', '".$_POST['rollno']."','".$_POST['branch']."')";
+    $rollno = $_POST['rollno'];
+	$name = $_POST['name'];
+	$gender = $_POST['gender'];
+	$branch = $_POST['branch'];
+	$email = $_POST['email'];
+    $address = $_POST['address'];
+    
+    $sql = "INSERT INTO student (name, rollno, gender, branch, email, address) VALUES ('$name','$rollno','$gender','$branch','$email','$address')";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
