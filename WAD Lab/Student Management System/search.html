@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2019 wad15
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Noto+Sans+JP:500&display=swap" rel="stylesheet"> 
+        <title>Search for a Record</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1, h5 {
+                font-family: 'Lexend Deca', sans-serif;
+            }
+            div {
+                font-family: 'Noto Sans JP', sans-serif;
+                width: 30%;
+            }
+            input {
+                border-radius: 4px;
+            }
+            .for_form {
+                border-radius: 5px;
+                background-color: #f1f2f2;
+                padding: 20px;
+            }
+            button {
+                border-radius: 12px;
+                width: 30%;
+                font-size: 16px;
+                padding: 5px 10px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                background-color: #4c4c4c;
+                color: white;
+            }
+         
+        </style>
+    </head>
+    <body>
+        <center>
+            <div style = "width: 100%" align='center'>
+                <h1>Student Management System</h1>
+                <h2>Search for a record</h2>
+            </div>
+            <div align='center' class='for_form'>
+                <form method="POST" action="search" id='search'>
+                    <label>Roll number:<br>
+                        <input type="text" name="rollno" required>
+                    </label><br><br>
+                    <button form='search' type='submit'>Search</button>
+                    <button type='reset'>Reset</button>
+                </form>
+                <h3>Go back to <a href='index.html'>Main Menu</a></h3>
+            </div>
+        </center>
+    </body>
+</html>
