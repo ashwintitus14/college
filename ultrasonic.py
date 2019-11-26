@@ -27,8 +27,8 @@ def distance():
     return distance
 
 
-screen_diagonal = input("Enter the diagonal length of the projector screen in inches")
-lcd_diagonal = input("Enter the diagonal length of the Projector's LCD Panel in inches")
+screen_diagonal = float(input("Enter the diagonal length of the projector screen in inches"))
+lcd_diagonal = float(input("Enter the diagonal length of the Projector's LCD Panel in inches"))
 
 try:
     while True:
