@@ -30,13 +30,13 @@ def distance():
 screen_diagonal = input("Enter the diagonal length of the projector screen in inches")
 lcd_diagonal = input("Enter the diagonal length of the Projector's LCD Panel in inches")
 
-
 try:
     while True:
         dist = distance()
         dist_inches = dist*0.393701
-        lens_focal_length = (dist * (lcd_diagonal*0.8))/ screen_diagonal
-        print("Focal Length of lens = %.1f cm" % lens_focal_length)
+        lens_focal_length_inch = (dist * (lcd_diagonal*0.8))/ screen_diagonal
+        lens_focal_length_mm = lens_focal_length_inch*25.4
+        print("Focal Length of lens = %.1f mm" % lens_focal_length_mm)
         time.sleep(1)
 
 except KeyboardInterrupt:
