@@ -12,3 +12,8 @@ rm(x, y, z)
 #creating a vector by concatenating numbers
 x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
 y <- c(x, 0, x)
+
+#raising to a power
+2^8
+
+#
